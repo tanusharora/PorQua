@@ -1,4 +1,5 @@
 numpy
 pandas
 scipy
-qpsolvers
+qpsolvers[open_source_solvers]
+matplotlib
