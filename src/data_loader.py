@@ -47,12 +47,12 @@ def load_data_msci(path: str = None, n: int = 24) -> dict[str, pd.DataFrame]:
 
     # Load msci world index return series
     y = pd.read_csv(f'{path}NDDLWI.csv',
-                    sep=';',
+                    sep=',',
                     index_col=0,
                     header=0,
                     parse_dates=True)
 
-    y.index = pd.to_datetime(y.index, format='%d/%m/%Y')
+    y.index = pd.to_datetime(y.index, format='%d-%m-%Y')
 
     return {'return_series': X, 'bm_series': y}
 
