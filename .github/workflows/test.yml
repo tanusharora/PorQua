@@ -20,7 +20,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run unittest
-      run: |
-        python -m unittest discover -s test -p "*.py"
+    - name: Run unit tests
+      run: python test/quadratic_suite.py
 
