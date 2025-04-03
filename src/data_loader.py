@@ -41,7 +41,7 @@ def load_data_msci(path: str = None, n: int = 24) -> dict[str, pd.DataFrame]:
                         index_col=0,
                         header=0,
                         parse_dates=True)
-    df.index = pd.to_datetime(df.index, format='%d/%m/%Y')
+    df.index = pd.to_datetime(df.index, format='%d-%m-%Y')
     series_id = df.columns[0:n]
     X = df[series_id]
 
