@@ -14,5 +14,5 @@ This repository focuses on:
 - Expanding test coverage across key modules (e.g. constraints, optimization, data loaders)
 - Adding fixtures and mocks where appropriate to simulate test environments
 
-> ✅ All tests are designed to pass independently and reliably, using official PorQua datasets and modules.
+✅ All tests are designed to pass independently and reliably, using official PorQua datasets and modules.
 
