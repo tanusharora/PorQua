@@ -3,3 +3,5 @@ pandas
 scipy
 qpsolvers[open_source_solvers]
 matplotlib
+pytest
+pytest-cov
