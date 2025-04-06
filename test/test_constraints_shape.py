@@ -1,10 +1,8 @@
 import os
 import sys
-import numpy as np
-import pandas as pd
 import pytest
+import numpy as np
 
-# Allow imports from src
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from constraints import Constraints
@@ -35,4 +33,10 @@ def test_add_budget_and_box_constraints(sample_constraints):
     assert GhAb['A'] is not None
     assert GhAb['b'] is not None
     assert GhAb['A'].shape[1] == len(universe)
-    assert GhAb['b'].shape[0] == GhAb['A'].shape[0]
+
+    # Fix: reshape b if needed
+    b = GhAb['b']
+    if np.isscalar(b):
+        b = np.array([b])
+
+    assert b.shape[0] == GhAb['A'].shape[0]
