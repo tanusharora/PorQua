@@ -1,9 +1,10 @@
-import sys
 import os
-import pytest
 import pandas as pd
 import numpy as np
+import pytest
+import sys
 
+# Add src/ to PYTHONPATH
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from constraints import Constraints
@@ -23,7 +24,17 @@ def test_add_budget_and_box_constraints(sample_constraints):
 
     GhAb = constraints.to_GhAb()
 
-    assert GhAb['A'].shape[1] == len(universe)
-    assert GhAb['b'].shape[0] == GhAb['A'].shape[0]
+    # Debug if needed
+    # print(GhAb)
+
+    # Inequality constraints
+    assert GhAb['G'] is not None
+    assert GhAb['h'] is not None
     assert GhAb['G'].shape[1] == len(universe)
     assert GhAb['h'].shape[0] == GhAb['G'].shape[0]
+
+    # Equality constraints
+    assert GhAb['A'] is not None
+    assert GhAb['b'] is not None
+    assert GhAb['A'].shape[1] == len(universe)
+    assert GhAb['b'].shape[0] == GhAb['A'].shape[0]
