@@ -1,7 +1,11 @@
+import sys
 import os
+import pytest
 import pandas as pd
 import numpy as np
-import pytest
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
 from constraints import Constraints
 from data_loader import load_data_msci
 
