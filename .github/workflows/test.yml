@@ -21,7 +21,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run test_constraints_shape
-      run: python -m unittest test/test_constraints_shape.py
-
+      run: PYTHONPATH=src python -m unittest test/test_constraints_shape.py
+      
     - name: Run quadratic_suite
       run: python test/quadratic_suite.py
